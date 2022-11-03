@@ -4,6 +4,7 @@ const navbarlistEl = document.querySelector(".navbar_list")
 const colseBtn = document.querySelector("#close_btn")
 const navLink = document.querySelectorAll(".navbar_list a")
 const headerEl = document.querySelector(".header")
+const upArrowEl = document.querySelector(".upArrow")
 
 console.log(navLink)
 barEl.addEventListener("click", () => {
@@ -36,10 +37,14 @@ navLink.forEach(element => {
 
 
 window.onscroll = function(){
-    if(window.pageYOffset > 600){
+    if(window.pageYOffset > 500){
         headerEl.classList.add("active")
+        upArrowEl.classList.add("active")
     }
     else{
         headerEl.classList.remove("active")
+        upArrowEl.classList.remove("active")
     }
+
 }
+
