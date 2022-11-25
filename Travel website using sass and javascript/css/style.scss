@@ -108,9 +108,14 @@ section {
             margin-left: 2rem;
             font-size: 1.7rem;
             color: $black;
+            padding-bottom: 0.5rem;
 
             &:hover {
                 color: $green;
+            }
+            &.active{
+                color: $green;
+                border-bottom: 0.2rem solid $green;
             }
         }
 

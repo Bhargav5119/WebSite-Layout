@@ -99,7 +99,7 @@ function scrollActive() {
     sections.forEach(current => {
         const sectionHeight = current.offsetHeight;
 
-        console.log(sectionHeight);
+        // console.log(sectionHeight);
         const sectionTop = current.offsetTop - 50;
 
         // console.log(sectionTop);
