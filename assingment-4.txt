@@ -1,0 +1,109 @@
+Assignment  4:- 
+
+q-1: What is JSON.
+ans: JSON stands for JavaScript Object Notation. JSON is a lightweight format for storing and transporting data. JSON is often used when data is sent from a server to a web page. JSON is "self-describing" and easy to understand.
+ 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q-2: What is promises.
+ans: A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q-3: Write a program of promises and handle that promises also.
+ans: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script> 
+var promise = new Promise(function(resolve, reject) { 
+  const x = "ammar"; 
+  const y = "ammar"
+  if(x === y) { 
+    resolve(); 
+  } else { 
+    reject(); 
+  } 
+}); 
+    
+promise. 
+    then(function () { 
+        console.log('Success...!'); 
+    }). 
+    catch(function () { 
+        console.log('Some error has occurred'); 
+    });
+</script>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q-4: Use fetch method for calling an api https://fakestoreapi.com/products.
+ans: fetch('https://fakestoreapi.com/products').then((res)=>res.json()).then((Response)=>{ console.log(Response); }
+       
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q-5: Display all the product from the api in your HTML page.
+ans: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<table border="1">
+    <thead>
+        <th>id</th>
+        <th>title</th>
+        <th>price</th>
+        <th>description</th>
+    </thead>
+    <tbody id="dispData"></tbody>
+</table>
+
+<script>
+    fetch('https://fakestoreapi.com/products').then((res)=>res.json()).then((Response)=>{
+        console.log(Response);
+        HtmlData = '';
+        Response.forEach(element => {
+            HtmlData+=`<tr>
+                <td>${element.id}</td>
+                <td>${element.title}</td>
+                <td>${element.price}</td>
+                <td>${element.description}</td>
+                </tr>`
+        });
+        document.querySelector('#dispData').innerHTML = HtmlData;
+    })
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,601 @@
+Assignment  3:- 
+
+q-1: Create a program to hide/show the password. 
+ans:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>      
+    <strong>Password</strong>: 
+    <input type="password" value="ammar" id="typepass">
+      
+    <input type="checkbox" onclick="Toggle()">
+    <strong>Show Password</strong>
+      
+<script>
+    function Toggle() {
+            var temp = document.getElementById("typepass");
+            if (temp.type === "password") {
+                temp.type = "text";
+            }
+            else {
+                temp.type = "password";
+            }
+        }
+</script>
+</body>
+</html>
+ 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q-2: Create a program that will select all the classes and loop over and whenever i click the button the alert should show.
+ans: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>      
+    <div id="buttonsContainer"></div>
+
+<script>
+   const buttonsContainer = document.getElementById("buttonsContainer");
+
+    for (var i = 0; i < 5; i++) {
+    const button = document.createElement("button");
+    button.innerText = i;
+    button.addEventListener("click", function() {
+        alert(i);
+    });
+    buttonsContainer.appendChild(button);
+}
+</script>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q-3: Create a responsive header using proper JavaScript.
+ans: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+:root{
+    --main-color: #d3ab7f;
+    --black: #13131a;
+    --bg: #010103;
+    --border: .1rem solid rgba(255, 255, 255, .3);
+}
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+.header{
+    background-color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    border-bottom: var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+.header .logo img{
+    height: 6rem;
+}
+.header .navbar a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: #fff;
+}
+.header .navbar a:hover{
+    color: var(--main-color);
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .5rem;
+}
+.header .icons div{
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
+.header .icons div:hover{
+    color: var(--main-color);
+}
+#menu-btn{
+    display: none;
+}
+@media(max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 1.5rem 2rem;
+    }
+}
+@media(max-width:768px){
+    #menu-btn{
+        display: inline-block;
+    }
+    .header .navbar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #fff;
+        width: 30rem;
+        height: calc(100vh - 9.5rem);
+    }
+    .header .navbar.active{
+        right: 0;
+    }
+    .header .navbar a{
+        color: var(--black);
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
+    }
+}
+@media(max-width:450px){
+    html{
+        font-size: 50%;
+    }
+}
+</style>
+</head>
+<body>      
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="images/logo.png" alt="">
+        </a>
+    
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#menu">menu</a>
+            <a href="#products">products</a>
+            <a href="#review">review</a>
+            <a href="#contact">contact</a>
+            <a href="#blogs">blogs</a>
+        </nav>
+    
+        <div class="icons">
+            <div class="fa-solid fa-magnifying-glass" id="search-btn"></div>
+            <div class="fa-solid fa-shopping-cart" id="cart-btn"></div>
+            <div class="fa-solid fa-bars" id="menu-btn"></div>
+        </div>
+<script src="https://kit.fontawesome.com/30fdf6eef9.js" crossorigin="anonymous"></script>
+<script>
+// navbar
+let navbar = document.querySelector('.navbar');
+
+document.querySelector('#menu-btn').onclick = () =>{
+    navbar.classList.toggle('active');
+    searchForm.classList.remove('active');
+    cartItem.classList.remove('active');
+}
+</script>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q-4: Create a form and validate using JavaScript.
+ans: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<form method="post">
+    <table border="1" align="center">
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="name" id="name" onblur="ValidData(this, 'nameerror')" onkeydown="ValidName(this, 'nerror')">
+            <span id="nameerror"></span>
+            <span id="nerror"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" name="email" id="email" onblur="ValidData(this, 'emailerror')" onkeydown="ValidEmail(this, 'eerror')">
+            <span id="emailerror"></span>
+            <span id="eerror"></span>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" id="pwd" onblur="ValidData(this, 'pwderror')" onkeydown="Validpwd(this, 'perror')">
+            <span id="pwderror"></span>
+            <span id="perror"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Mobile no.:</td>
+            <td><input type="number" name="number" id="mobile" onblur="ValidData(this, 'moberror')" onkeydown="ValidMobile(this, 'merror')">
+            <span id="moberror"></span>
+            <span id="merror"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="submit" id="submit"></td>
+        </tr>
+    </table>
+</form>
+
+
+<script>
+    function ValidData(e,spnid){
+        if(e.value == ""){
+            document.getElementById(spnid).style.color="red";
+            document.getElementById(spnid).innerHTML = "Please Enter Data..!"
+            return false;
+        }
+        else{
+            document.getElementById(spnid).innerHTML = "";
+        }
+    }
+
+    function ValidName(e,spnid){
+        var name = /^[a-zA-Z]+$/;
+        if(name.test(e.value)){
+            document.getElementById(spnid).innerHTML = "";
+        }
+        else{
+            document.getElementById(spnid).style.color="red";
+            document.getElementById(spnid).innerHTML = "Please Enter only Characters..!";
+        }
+    }
+
+    function ValidEmail(e,spnid){
+        var email = /^([a-z0-9.-_])+@([a-z0-9.-_])+\.([a-z]{2,3})$/;
+        if(email.test(e.value)){
+            document.getElementById(spnid).innerHTML = "";
+        }
+        else{
+            document.getElementById(spnid).style.color="red";
+            document.getElementById(spnid).innerHTML = "Please Enter Valid Email..!";
+        }
+    }
+
+    function Validpwd(e,spnid){
+        var password = /^([a-zA-Z0-9.-_@]){3,5}$/;
+        if(password.test(e.value)){
+            document.getElementById(spnid).innerHTML = "";
+        }
+        else{
+            document.getElementById(spnid).style.color="red";
+            document.getElementById(spnid).innerHTML = "Please Enter min 3 & max 5 charcter..!";
+        }
+    }
+
+    function ValidMobile(e,spnid){
+        var mobile = /^[0-9]{10}$/;
+        if(mobile.test(e.value)){
+            document.getElementById(spnid).innerHTML = "";
+        }
+        else{
+            document.getElementById(spnid).style.color="red";
+            document.getElementById(spnid).innerHTML = "Please Enter 10 Digit Number!";
+        }
+    }
+</script>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q-5 Create a modal box using css and Js with three buttons.
+ans: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
+
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+
+.close-button:hover {
+    background-color: darkgray;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+    </style>
+</head>
+<body>
+    <button class="trigger">Click here to trigger the modal!</button>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h1>Hello, I am a modal!</h1>
+        </div>
+    </div>
+
+<script>
+const modal = document.querySelector(".modal");
+const trigger = document.querySelector(".trigger");
+const closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+</script>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q-6: Use external js library to show slider.
+ans: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<style>
+:root{
+    --green:#27ae60;
+    --black:#192a56;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+section{
+    padding: 2rem 9%;
+}
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #fff;
+    background-color: var(--black);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+}
+.home .home-slider .slide{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+}
+.home .home-slider .slide .content{
+    flex: 1 1 40rem;
+}
+.home .home-slider .slide .image{
+    flex: 1 1 45rem;
+}
+.home .home-slider .slide .image img{
+    width: 100%;
+}
+.home .home-slider .slide .content span{
+    color: var(--green);
+    font-size: 2.5rem;
+}
+.home .home-slider .slide .content h3{
+    color: var(--black);
+    font-size: 7rem;
+}
+.home .home-slider .slide .content p{
+    color: var(--light-color);
+    font-size: 2.2rem;
+    padding: .5rem 0;
+    line-height: 1.5;
+}
+.swiper-pagination-bullet-active{
+    background-color: var(--green);
+}
+</style>
+</head>
+<body>
+    <section class="home" id="home">
+        <div class="swiper home-slider">
+            <div class="swiper-wrapper wrapper">
+    
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>our special dish</span>
+                        <h3>spicy noodles</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, atque placeat! Totam.</p>
+                        <a href="#" class="btn">Order now</a>
+                    </div>
+                    <div class="image">
+                        <img src="home-img-1.png" alt="">
+                    </div>
+                </div>
+    
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>our special dish</span>
+                        <h3>fried chicken</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, atque placeat! Totam.</p>
+                        <a href="#" class="btn">Order now</a>
+                    </div>
+                    <div class="image">
+                        <img src="home-img-2.png" alt="">
+                    </div>
+                </div>
+    
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>our special dish</span>
+                        <h3>hot pizza</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, atque placeat! Totam.</p>
+                        <a href="#" class="btn">Order now</a>
+                    </div>
+                    <div class="image">
+                        <img src="home-img-3.png" alt="">
+                    </div>
+                </div>
+    
+            </div>
+    
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".home-slider", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    loop: true,
+  });
+
+</script>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q-7: Prevent the browser when i click the form submit button.
+ans: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" name="" id="name" required>
+        <input type="submit" value="submit">
+    </form>
+
+<script>
+    document.getElementById('myForm').addEventListener("submit",function(e){
+        e.preventDefault()
+
+        alert("Form is submited")
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
